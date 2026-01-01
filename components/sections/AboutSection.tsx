@@ -1,0 +1,63 @@
+import StatCard from "../ui/StatCard";
+
+export default function AboutSection() {
+  return (
+    <section className="py-32 bg-vanilla" id="about">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div className="aspect-[3/4] overflow-hidden bg-gray-100 relative z-10">
+              <div
+                className="w-full h-full bg-cover bg-center grayscale-[20%]"
+                style={{
+                  backgroundImage:
+                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXiirM7eLXGoMcDcJO1IFsaEiXVukOCAuw46cArvgmMYiR3n79gLQRaL-9ZEWSbCchzBIAjqAMtSwOCj039eyeJJ1StZ3q-qkrUu3Osfm-yTScaiYZdQLtkMsTvkNr7P73cYv_CPmNb4mjoSctTlauaQXCZIrFbOmtHTE3l2trB7Sduld0vkBl_D1sMnPyO7r0qjJIUej3zvW1oySvfISLKX35yMibrW5dSDMIEm-7_-281JdDccUVcQw9OW_RGcHiwNMy9e40JQSi')",
+                }}
+              ></div>
+            </div>
+            <div className="absolute top-8 -left-8 w-full h-full border border-tobacco/30 z-0 hidden lg:block"></div>
+            <div className="absolute -bottom-12 -right-12 w-2/5 aspect-[4/5] overflow-hidden shadow-xl z-20 hidden md:block">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage:
+                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyLLD-ioX5IyJzQ-P5KOIT1n6jLhO_mqiOVUjzOk6XSyUFFVH3QYdYepriL5-FYlyMTGcGuorVaY13mWaeryBWuh7E6J04DjSmMTwr4_5Nd7tsdmT5xu1JAkV3hNRIuVOnsopt5-8uDHruQx-XgsatI-vKhlaOLgBXdXi_keXoXA5sPqnYrEmbxDdDNWZLRHb23gYo4fg0a7JeSa6OyIqF6yUF-Wr7n-QVNC1s_RAcp7rSHJ0e0edX3j4Nm4vHh3tjzRPsZwBQ2FRX')",
+                }}
+              ></div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-10 order-1 lg:order-2">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="h-px w-12 bg-tobacco"></span>
+                <span className="text-tobacco text-xs font-bold tracking-[0.2em] uppercase">
+                  The Artist
+                </span>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-serif text-mahogany leading-none">
+                Refined Artistry & <br />
+                Calming Presence
+              </h2>
+              <div className="space-y-6 text-mountain font-light leading-relaxed text-lg">
+                <p>
+                  With a philosophy rooted in enhancing natural beauty, I specialize in creating
+                  skin-focused, radiant looks that stand the test of time. I believe your wedding
+                  makeup should feel like a luxurious extension of yourself.
+                </p>
+                <p>
+                  My approach is calm, collected, and focused on creating a serene atmosphere for
+                  your morning. From the initial consultation to the final veil placement, I am
+                  dedicated to perfection.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-12 border-t border-sand pt-8">
+              <StatCard number="10+" label="Years Experience" />
+              <StatCard number="500+" label="Brides Styled" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
