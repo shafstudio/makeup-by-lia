@@ -1,4 +1,7 @@
+"use client";
+
 import { ServiceCardProps } from "@/lib/types";
+import BookingButton from "./BookingButton";
 
 export default function ServiceCard({
   image,
@@ -28,12 +31,13 @@ export default function ServiceCard({
             <li key={index}>{feature}</li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="text-xs font-bold uppercase tracking-widest border-b border-tobacco/50 pb-1 hover:text-tobacco transition-colors"
+        <BookingButton
+          eventType="makeup"
+          variant="secondary"
+          className="text-xs font-bold uppercase tracking-widest border-b border-tobacco/50 pb-1 hover:text-tobacco transition-colors bg-transparent border-0 px-0 py-0"
         >
           Book Now
-        </a>
+        </BookingButton>
       </div>
     </div>
   );

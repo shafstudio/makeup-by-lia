@@ -2,13 +2,18 @@
 
 import { useCallback } from "react";
 
-export function useCalendly() {
+type CalendlyEventType = "discovery" | "makeup";
+
+export function useCalendly(eventType: CalendlyEventType = "discovery") {
   const openCalendly = useCallback(() => {
-    const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
+    const calendlyUrl =
+      eventType === "makeup"
+        ? process.env.NEXT_PUBLIC_CALENDLY_MAKEUP_URL
+        : process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL;
 
     if (!calendlyUrl) {
       console.error(
-        "Calendly URL not configured. Please add NEXT_PUBLIC_CALENDLY_URL to your .env.local file."
+        `Calendly URL not configured for event type: ${eventType}. Please add NEXT_PUBLIC_CALENDLY_${eventType.toUpperCase()}_URL to your .env.local file.`
       );
       return;
     }
@@ -24,7 +29,7 @@ export function useCalendly() {
       );
       window.open(calendlyUrl, "_blank");
     }
-  }, []);
+  }, [eventType]);
 
   return { openCalendly };
 }

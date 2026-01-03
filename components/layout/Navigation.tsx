@@ -3,20 +3,37 @@
 import { useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import Icon from "../ui/Icon";
+import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrolled = useScrollPosition();
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 border-b border-white/10">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white shadow-md border-b border-sand/20"
+          : "bg-transparent border-b border-white/10"
+      }`}
+    >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <a
             href="#home"
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <Icon name="brush" className="text-white text-3xl font-light" />
-            <h1 className="text-2xl font-serif font-medium tracking-widest text-white uppercase">
+            <Icon
+              name="brush"
+              className={`text-3xl font-light transition-colors ${
+                scrolled ? "text-mahogany" : "text-white"
+              }`}
+            />
+            <h1
+              className={`text-2xl font-serif font-medium tracking-widest uppercase transition-colors ${
+                scrolled ? "text-mahogany" : "text-white"
+              }`}
+            >
               MAKEUP BY LIA
             </h1>
           </a>
@@ -25,7 +42,11 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-white/90 hover:text-white transition-colors tracking-widest uppercase text-xs"
+                className={`text-xs font-medium tracking-widest uppercase transition-colors ${
+                  scrolled
+                    ? "text-mahogany/80 hover:text-mahogany"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {link.label}
               </a>
@@ -34,13 +55,21 @@ export default function Navigation() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden sm:flex items-center justify-center px-8 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-mahogany transition-all duration-300"
+              className={`hidden sm:flex items-center justify-center px-8 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 ${
+                scrolled
+                  ? "bg-mahogany border border-mahogany text-white hover:bg-mahogany/90"
+                  : "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-mahogany"
+              }`}
             >
               Inquire
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-white hover:bg-white/10 rounded-sm transition-colors"
+              className={`md:hidden p-2 rounded-sm transition-colors cursor-pointer ${
+                scrolled
+                  ? "text-mahogany hover:bg-mahogany/10"
+                  : "text-white hover:bg-white/10"
+              }`}
               aria-label="Toggle mobile menu"
             >
               <Icon name={mobileMenuOpen ? "close" : "menu"} />
@@ -48,10 +77,32 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-sand">
-          <div className="px-4 py-6 space-y-4">
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      {/* Mobile Menu - Slide from Right */}
+      <div
+        className={`fixed top-0 right-0 h-full w-70 bg-white shadow-xl z-50 md:hidden transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Close Button */}
+          <div className="flex justify-end p-4 border-b border-sand">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 text-mahogany hover:bg-mahogany/10 rounded-sm transition-colors cursor-pointer"
+              aria-label="Close mobile menu"
+            >
+              <Icon name="close" />
+            </button>
+          </div>
+          {/* Menu Items */}
+          <div className="flex-1 px-6 py-8 space-y-6 overflow-y-auto">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -65,13 +116,13 @@ export default function Navigation() {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center px-8 py-2.5 bg-mahogany text-white text-xs font-bold tracking-widest uppercase hover:bg-tobacco transition-all duration-300"
+              className="block w-full text-center px-8 py-2.5 bg-mahogany text-white text-xs font-bold tracking-widest uppercase hover:bg-tobacco transition-all duration-300 mt-8"
             >
               Inquire
             </a>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

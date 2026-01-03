@@ -8,12 +8,14 @@ export default function Button({
   className = "",
   onClick,
 }: ButtonProps) {
-  const baseStyles = "flex items-center justify-center px-8 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300";
+  const baseStyles =
+    "flex items-center justify-center px-8 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer";
 
   const variants = {
-    primary: "bg-white text-mahogany hover:bg-white/90",
+    primary: "bg-white text-mahogany hover:text-white hover:bg-mahogany/90",
     secondary: "bg-mahogany text-white hover:bg-mahogany/90",
-    outline: "bg-transparent border border-white text-white hover:bg-white hover:text-mahogany",
+    outline:
+      "bg-transparent border border-white text-white hover:bg-white hover:text-mahogany",
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;

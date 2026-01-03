@@ -11,12 +11,41 @@ export default function ContactForm() {
     venue: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // TODO: Add actual form submission logic
-    alert("Thank you for your inquiry! We'll be in touch soon.");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", date: "", venue: "", message: "" });
+    } catch (error) {
+      setSubmitStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "An error occurred. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -115,11 +144,32 @@ export default function ContactForm() {
           onChange={handleChange}
         ></textarea>
       </div>
+      {/* Success Message */}
+      {submitStatus === "success" && (
+        <div className="p-4 bg-green-50 border border-green-200 rounded-sm">
+          <p className="text-green-800 text-sm">
+            Thank you for your inquiry! We've received your message and will
+            respond within 24 hours.
+          </p>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {submitStatus === "error" && (
+        <div className="p-4 bg-red-50 border border-red-200 rounded-sm">
+          <p className="text-red-800 text-sm">
+            {errorMessage ||
+              "Sorry, there was an error sending your message. Please try again or email us directly at hello@makeupbylia.com"}
+          </p>
+        </div>
+      )}
+
       <button
-        className="mt-4 w-full h-14 bg-mahogany text-white text-xs font-bold uppercase tracking-widest hover:bg-tobacco transition-colors duration-300"
+        className="mt-4 w-full h-14 bg-mahogany text-white text-xs font-bold uppercase tracking-widest hover:bg-tobacco transition-colors duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         type="submit"
+        disabled={isSubmitting}
       >
-        Send Enquiry
+        {isSubmitting ? "Sending..." : "Send Enquiry"}
       </button>
     </form>
   );

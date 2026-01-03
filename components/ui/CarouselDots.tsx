@@ -13,7 +13,7 @@ export default function CarouselDots({ count, activeIndex, onDotClick }: Carouse
         <button
           key={index}
           onClick={() => onDotClick(index)}
-          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
             index === activeIndex
               ? "bg-tobacco scale-110"
               : "bg-mountain/30 hover:bg-mountain/50 hover:scale-110"
