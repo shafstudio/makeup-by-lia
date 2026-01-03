@@ -25,29 +25,35 @@ export default function HeroSection() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
 
-        {/* Video background */}
+        {/* Video background - Bridal makeup theme */}
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.pexels.com/photos/3992866/pexels-photo-3992866.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          poster="https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          onError={(e) => {
+            console.warn("Video failed to load, using poster image");
+            e.currentTarget.style.display = "none";
+          }}
         >
+          {/* Primary source - Pexels HD video */}
           <source
-            src="https://videos.pexels.com/video-files/3992865/3992865-uhd_2560_1440_25fps.mp4"
+            src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4"
             type="video/mp4"
           />
-          {/* Fallback image if video doesn't load */}
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage:
-                "url('https://images.pexels.com/photos/3992866/pexels-photo-3992866.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-            }}
-          />
         </video>
+        {/* Fallback background image */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=1920')",
+          }}
+        />
       </div>
       <div className="relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center">
         <div className="flex flex-col items-center gap-8 animate-fade-in-up max-w-4xl mx-auto">
