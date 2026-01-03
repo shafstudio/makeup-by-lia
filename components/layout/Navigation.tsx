@@ -11,10 +11,13 @@ export default function Navigation() {
     <nav className="absolute top-0 left-0 w-full z-50 border-b border-white/10">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <a href="#home" className="flex items-center gap-2 group cursor-pointer">
+          <a
+            href="#home"
+            className="flex items-center gap-2 group cursor-pointer"
+          >
             <Icon name="brush" className="text-white text-3xl font-light" />
             <h1 className="text-2xl font-serif font-medium tracking-widest text-white uppercase">
-              Bridal Artistry
+              MAKEUP BY LIA
             </h1>
           </a>
           <div className="hidden md:flex items-center space-x-10">

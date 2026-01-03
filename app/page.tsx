@@ -16,8 +16,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
-        <ServicesSection />
         <PortfolioSection />
+        <ServicesSection />
         <TestimonialsSection />
         <FAQSection />
         <CTASection />

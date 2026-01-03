@@ -1,4 +1,5 @@
 import Button from "../ui/Button";
+import BookingButton from "../ui/BookingButton";
 
 export default function HeroSection() {
   return (
@@ -31,9 +32,9 @@ export default function HeroSection() {
             specifically to you.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 pt-8">
-            <Button href="#contact" className="min-w-[180px]">
+            <BookingButton className="min-w-[180px]">
               Book Your Date
-            </Button>
+            </BookingButton>
             <Button href="#services" variant="outline" className="min-w-[180px]">
               Our Services
             </Button>

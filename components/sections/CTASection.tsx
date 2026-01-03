@@ -1,3 +1,7 @@
+"use client";
+
+import BookingButton from "../ui/BookingButton";
+
 export default function CTASection() {
   return (
     <section className="py-24 bg-mahogany text-white">
@@ -7,12 +11,12 @@ export default function CTASection() {
           Availability for the upcoming season is limited. Let's create something beautiful
           together.
         </p>
-        <a
-          href="#contact"
-          className="px-12 py-4 border border-white/30 text-white font-bold tracking-widest text-xs uppercase hover:bg-white hover:text-mahogany transition-all duration-300"
+        <BookingButton
+          variant="outline"
+          className="px-12 py-4 border-white/30 text-white font-bold tracking-widest text-xs uppercase hover:bg-white hover:text-mahogany"
         >
           Inquire Now
-        </a>
+        </BookingButton>
       </div>
     </section>
   );

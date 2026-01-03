@@ -4,7 +4,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Love Notes", href: "#testimonials" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -64,6 +64,42 @@ export const TESTIMONIALS: TestimonialCardProps[] = [
     date: "October 2023",
     avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeJAHlcIU-ct3Sl1g-9DrjY82UMBU3-U95DBS3QKnaGVjnD8VQYJzAYkzZQq4flkbXvnxh2KPGFkPJoPbaXVTLr-ht6SSamFBXVK10ueGRZVmxmll0C--vpEzG95HRlZB6U2zpQDmuFa-r3ePwwoGgaQqktCi_me7aiMJ8rX880nNi4VDeohZzjOZNchOrxXx11IIKh07WjbYtY7G_63Ap7VgkjY-eMk_XrxXiufGFxsRkXshCZxUIy4iA9RP_WBwiIQiSpwmmvX9z",
   },
+  {
+    quote: "From start to finish, the experience was exceptional. The attention to detail and the quality of products used made all the difference. My makeup looked incredible in person and in photos.",
+    author: "Rachel & James",
+    date: "December 2023",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4J1ktOs92MOjJ7KBEAF7OXo-piG-ZVw6dkgpsetvzyXC08uZkeDWcMlojBJVxrFJA5xjwsVhKz4fkMP-tTauSm_s1LDlrEYmdDnHWtk4kP3vUfpfHSVH2Iq1JkBKWBSW4YQQa7D7GX2oUceiycVFJoUNkGBAjdKvIoQpmK6kCirdRc5VO8-Fr-hOaSNF_CvnxTdLMxMUxDtHvszKcl-Xx9lWsVgZyfhfEAP2aHrvBMbBa4o2JGNB6_9_NdrL2-Xxpzd1DRtARY4Ff",
+  },
+  {
+    quote: "I was nervous about wearing makeup all day, but she created such a natural look that I forgot I was even wearing any. It held up beautifully from morning until midnight.",
+    author: "Olivia & Mark",
+    date: "February 2024",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHmpO21n2DCntOLNljbJxWqjl76cN_sq8_4FaWXFjglvb92mhIgiJxWj6ljEPkyYw5cMVR4d7JJrE4GNch2BlgmFKXL9sgorgX_bcLbEdVVdkm31Miz6g09qB8cNGmgiA1V6hhQRGKGUQnPp4YTWyD5QdLrK_UNlh5s35OCZj7u2kar-4YSm3F1JEpQnFNPNFnOsLVRuD67Aypz2YZEkOF1BGBMJ_imLzlwTVTqc4vneopXa7LWZRsIzvE_AjZZGZD6OMNXK8cAReK",
+  },
+  {
+    quote: "The trial session was so helpful in finding the perfect look. On the wedding day, she arrived early, kept everything on schedule, and made the whole bridal party feel pampered and beautiful.",
+    author: "Amanda & Chris",
+    date: "April 2024",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeJAHlcIU-ct3Sl1g-9DrjY82UMBU3-U95DBS3QKnaGVjnD8VQYJzAYkzZQq4flkbXvnxh2KPGFkPJoPbaXVTLr-ht6SSamFBXVK10ueGRZVmxmll0C--vpEzG95HRlZB6U2zpQDmuFa-r3ePwwoGgaQqktCi_me7aiMJ8rX880nNi4VDeohZzjOZNchOrxXx11IIKh07WjbYtY7G_63Ap7VgkjY-eMk_XrxXiufGFxsRkXshCZxUIy4iA9RP_WBwiIQiSpwmmvX9z",
+  },
+  {
+    quote: "Her calm demeanor helped ease my wedding day jitters. The makeup was exactly what I envisioned - timeless, elegant, and perfectly suited to my style. I've never felt more confident.",
+    author: "Lauren & Daniel",
+    date: "May 2024",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4J1ktOs92MOjJ7KBEAF7OXo-piG-ZVw6dkgpsetvzyXC08uZkeDWcMlojBJVxrFJA5xjwsVhKz4fkMP-tTauSm_s1LDlrEYmdDnHWtk4kP3vUfpfHSVH2Iq1JkBKWBSW4YQQa7D7GX2oUceiycVFJoUNkGBAjdKvIoQpmK6kCirdRc5VO8-Fr-hOaSNF_CvnxTdLMxMUxDtHvszKcl-Xx9lWsVgZyfhfEAP2aHrvBMbBa4o2JGNB6_9_NdrL2-Xxpzd1DRtARY4Ff",
+  },
+  {
+    quote: "Absolutely worth every penny. She understood my vision immediately and executed it flawlessly. The photos came back and I'm still in awe of how beautiful everything looked.",
+    author: "Victoria & Ryan",
+    date: "July 2024",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBHmpO21n2DCntOLNljbJxWqjl76cN_sq8_4FaWXFjglvb92mhIgiJxWj6ljEPkyYw5cMVR4d7JJrE4GNch2BlgmFKXL9sgorgX_bcLbEdVVdkm31Miz6g09qB8cNGmgiA1V6hhQRGKGUQnPp4YTWyD5QdLrK_UNlh5s35OCZj7u2kar-4YSm3F1JEpQnFNPNFnOsLVRuD67Aypz2YZEkOF1BGBMJ_imLzlwTVTqc4vneopXa7LWZRsIzvE_AjZZGZD6OMNXK8cAReK",
+  },
+  {
+    quote: "She has a true gift for enhancing natural beauty. My mom, bridesmaids, and I all looked like the best versions of ourselves. The makeup photography beautifully and lasted the entire evening.",
+    author: "Sophie & Alexander",
+    date: "September 2024",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeJAHlcIU-ct3Sl1g-9DrjY82UMBU3-U95DBS3QKnaGVjnD8VQYJzAYkzZQq4flkbXvnxh2KPGFkPJoPbaXVTLr-ht6SSamFBXVK10ueGRZVmxmll0C--vpEzG95HRlZB6U2zpQDmuFa-r3ePwwoGgaQqktCi_me7aiMJ8rX880nNi4VDeohZzjOZNchOrxXx11IIKh07WjbYtY7G_63Ap7VgkjY-eMk_XrxXiufGFxsRkXshCZxUIy4iA9RP_WBwiIQiSpwmmvX9z",
+  },
 ];
 
 export const FAQS: FAQItemProps[] = [
@@ -101,5 +137,29 @@ export const PORTFOLIO_IMAGES: PortfolioImageProps[] = [
   {
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAX9lwbtAS4OgksBBTeBowLiaMnC2xxW6-coDh7IM-B6NFhFiBAaZTRbNI-odqHZ9irKP7wKhptYZoSzdXPyQ63gzfEUwQpQIbfs04Pkb26uG_BCDpDxLDbjExWYEvOFtF0k0vc1PAXfGAFwrsmAOMOjjzsyFbVMKi0XrAKl5CMrfhZxELZknuUA_jU1zcSBtYc9t0mIOXq_IGNYAWL5S2RRwp17bPxNv9ARzT4tWftrXNszUDTlfyOhMdTQlsmUlfmtUOEOY_Fl5dC",
     alt: "Bride applying lipstick in mirror",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAB3nxxHK1EM-I_GypSvPdJ6qn2X7Ohchn_VJ3lPDmYhc_qEXuz3ncsd4Km4_r-LKAVAeBu555GwAckZiL_4Wd4_Qx8PxQUtQkrQp8wooLkGzJljR_23YTmLtB1brtuqE-_bRpp6DwZ-YM-Zjo6wiW5HxaWS2g2IipaD9WrtKjRxpBW_VBLQYRFNSe3aixAtsvHaTr1yzT0qxoL8nl3tMYMt-rpJUaXU4xvMJdyfRhwTQhwkNLlnJorKAlPwTfHcVfwVL4x4W5FRWbg",
+    alt: "Beautiful bride with natural makeup",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAB3nxxHK1EM-I_GypSvPdJ6qn2X7Ohchn_VJ3lPDmYhc_qEXuz3ncsd4Km4_r-LKAVAeBu555GwAckZiL_4Wd4_Qx8PxQUtQkrQp8wooLkGzJljR_23YTmLtB1brtuqE-_bRpp6DwZ-YM-Zjo6wiW5HxaWS2g2IipaD9WrtKjRxpBW_VBLQYRFNSe3aixAtsvHaTr1yzT0qxoL8nl3tMYMt-rpJUaXU4xvMJdyfRhwTQhwkNLlnJorKAlPwTfHcVfwVL4x4W5FRWbg",
+    alt: "Beautiful bride with natural makeup",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAu2wjG_OV__RAUm7mZFV2-jenpfRomQbYXyB5XK_pTbw84xkJ2QUoC_did-qcWvnqFjas01hhOD3yKVuI73ui3rzIK6x6ZP8dzOs0xJ2iIJFeHukxXPYteghgC3Hzst4HlLx5ci_9RReRdqshLwNXSbFllvsSeO_tSN_nqLzK_ltht4HdaR_ony_QKejnOW-2FopRiFrJtlsax53j1dfS_DgL_PeoHhGXhb90OMu31BFFeYOPrrelVw4aTn3y-T84CTcOi6IBfSfm9",
+    alt: "Bride looking down with soft eye makeup",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmfc4wwphRlro2_USeAOvEmc5Pa702AauXotryMv05Xc8JFVpyT9uy1mk7SkUKPNdmnNSuX_nzZJUxGWlbxpuSt9tRaHt8hQu-ugu8mUVc9IEG2yTAnop4QMiHjx4FBt9AbdHlA74DIQYyCS_X5E-FJdCABKpuCJLwNcxELj1vw_nN5R7qjLs9jDvCiT9gDrvP9980B8SdrLRkbnp0iLSVZXWU-co3WRCcpXU0Hnxn3VF4Raa4I1e2H3Qq27fgWuXjHxlX4PLIoq4-",
+    alt: "Bride smiling with bouquet",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAX9lwbtAS4OgksBBTeBowLiaMnC2xxW6-coDh7IM-B6NFhFiBAaZTRbNI-odqHZ9irKP7wKhptYZoSzdXPyQ63gzfEUwQpQIbfs04Pkb26uG_BCDpDxLDbjExWYEvOFtF0k0vc1PAXfGAFwrsmAOMOjjzsyFbVMKi0XrAKl5CMrfhZxELZknuUA_jU1zcSBtYc9t0mIOXq_IGNYAWL5S2RRwp17bPxNv9ARzT4tWftrXNszUDTlfyOhMdTQlsmUlfmtUOEOY_Fl5dC",
+    alt: "Bride applying lipstick in mirror",
+  },
+  {
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAB3nxxHK1EM-I_GypSvPdJ6qn2X7Ohchn_VJ3lPDmYhc_qEXuz3ncsd4Km4_r-LKAVAeBu555GwAckZiL_4Wd4_Qx8PxQUtQkrQp8wooLkGzJljR_23YTmLtB1brtuqE-_bRpp6DwZ-YM-Zjo6wiW5HxaWS2g2IipaD9WrtKjRxpBW_VBLQYRFNSe3aixAtsvHaTr1yzT0qxoL8nl3tMYMt-rpJUaXU4xvMJdyfRhwTQhwkNLlnJorKAlPwTfHcVfwVL4x4W5FRWbg",
+    alt: "Beautiful bride with natural makeup",
   },
 ];

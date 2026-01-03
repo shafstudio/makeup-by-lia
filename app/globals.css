@@ -10,11 +10,12 @@
   --color-foreground: var(--foreground);
   --color-tobacco: #b59e7d;
   --color-mahogany: #584738;
-  --color-vanilla: #f1eada;
+  --color-vanilla: #f7f4ee;
   --color-mountain: #aaa396;
   --color-sand: #cec1a8;
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-cormorant);
+  /* --color-vanilla: #f1eada;  */
 }
 
 /* Custom scrollbar styling */
@@ -23,16 +24,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FDFBF9;
+  background: #fdfbf9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D6D1CD;
+  background: #d6d1cd;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A89F91;
+  background: #a89f91;
 }
 
 /* Hide details marker */
@@ -42,6 +43,16 @@ details > summary {
 
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+/* Calendly popup z-index fix - ensure iframe is above overlay */
+.calendly-overlay {
+  z-index: 9998 !important;
+}
+
+.calendly-overlay .calendly-popup-content {
+  z-index: 9999 !important;
+  position: relative !important;
 }
 
 body {
