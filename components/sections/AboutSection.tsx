@@ -29,8 +29,7 @@ export default function AboutSection() {
           <div className="flex flex-col gap-10 order-1 lg:order-2">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <span className="h-px w-12 bg-tobacco"></span>
-                <span className="text-tobacco text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="text-tobacco text-md font-bold tracking-[0.2em] uppercase">
                   The Artist
                 </span>
               </div>
@@ -40,20 +39,39 @@ export default function AboutSection() {
               </h2>
               <div className="space-y-6 text-mountain font-light leading-relaxed text-lg">
                 <p>
-                  With a philosophy rooted in enhancing natural beauty, I specialize in creating
-                  skin-focused, radiant looks that stand the test of time. I believe your wedding
-                  makeup should feel like a luxurious extension of yourself.
+                  Hi! I’m Lia, and I’m honoured to be considered as part of your
+                  special day.
                 </p>
                 <p>
-                  My approach is calm, collected, and focused on creating a serene atmosphere for
-                  your morning. From the initial consultation to the final veil placement, I am
-                  dedicated to perfection.
+                  With a focus on enhancing natural beauty, I specialise in
+                  creating skin-focused, radiant looks that last beautifully. I
+                  work closely with each client to understand their vision and
+                  ensure your makeup feels like a seamless, elegant extension of
+                  yourself.
+                </p>
+                <p>
+                  My approach is calm, collected, and centred on creating a
+                  serene, enjoyable experience, so you feel comfortable during
+                  your appointment and confident afterwards. Whether it’s your
+                  wedding day or a special occasion, my goal is to help you feel
+                  radiant, confident, and like the best version of yourself.
+                </p>
+                <p>
+                  Thank you for considering me for your special occasion, I
+                  can’t wait to bring your vision to life.
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-12 border-t border-sand pt-8">
+            {/* <div className="grid grid-cols-2 gap-12 border-t border-sand pt-8">
               <StatCard number="10+" label="Years Experience" />
               <StatCard number="500+" label="Brides Styled" />
+            </div> */}
+
+            <div className="flex items-center gap-3">
+              <span className="h-px w-6 bg-tobacco"></span>
+              <div className="text-2xl lg:text-3xl font-serif text-tobacco leading-none">
+                Lia XO
+              </div>
             </div>
           </div>
         </div>

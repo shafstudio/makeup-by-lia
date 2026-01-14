@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import Script from "next/script";
+import RecaptchaProvider from "@/components/providers/RecaptchaProvider";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -44,7 +45,7 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${manrope.variable} antialiased`}
       >
-        {children}
+        <RecaptchaProvider>{children}</RecaptchaProvider>
         {/* Calendly Popup Widget Script */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"

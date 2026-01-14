@@ -104,20 +104,60 @@ export const TESTIMONIALS: TestimonialCardProps[] = [
 
 export const FAQS: FAQItemProps[] = [
   {
-    question: "How far in advance should I book?",
-    answer: "I recommend booking as soon as you have your venue and date secured. Most brides book 9-12 months in advance, especially for popular spring and summer dates.",
+    question: "Where is your studio located?",
+    answer: " My studio is located in Guildford, NSW 2161.",
   },
   {
-    question: "Do you travel to the venue?",
-    answer: "Yes! I am a fully mobile service and will travel to your home, hotel, or venue. Travel fees may apply depending on the distance from the studio.",
+    question: "How do I secure my appointment?",
+    answer: "A 50% booking fee is required along with your event details (date, location, services, number of people). Your appointment is confirmed only once both are received.",
   },
   {
-    question: "What brands of makeup do you use?",
-    answer: "My kit is curated with high-end professional products designed for HD photography. I primarily use Charlotte Tilbury, NARS, Dior, and Bobbi Brown.",
+    question: "Do you travel for bookings?",
+    answer: "Yes! I’m happy to come to your location. Travel fees depend on the location, and parking may be added if necessary. For longer trips, overnight arrangements may be required.",
   },
   {
-    question: "Is a trial required?",
-    answer: "A trial is highly recommended. It allows us to meet and refine your vision to ensure complete peace of mind for your wedding day.",
+    question: "Do you offer trial sessions?",
+    answer: "Yes! Trials are recommended for bridal clients so you can preview your look. They typically take 2–2.5 hours at my Guildford studio or on location, depending on your preference.",
+  },
+  {
+    question: "Is a trial session a must?",
+    answer: "A trial is not mandatory, but it is strongly recommended for brides. It allows us to finalise your look, test longevity, and ensure you feel completely confident and comfortable on your special day.",
+  },
+  {
+    question: "Can I wear eyelash extensions or have a lash lift?",
+    answer: "Eyelash extensions are perfectly fine. However, lash lifts are <strong>not recommended immediately before your appointment </strong>, as they can affect the application of false lashes. I provide a range of strip lashes to suit both natural and glamorous looks.",
+  },
+  {
+    question: "What products do you use?",
+    answer: "I primarily use <strong>high-end and professional makeup brands </strong> known for their quality, longevity, and flawless results. My kit includes luxury and pro favourites such as <strong> Chanel, Dior, Tom Ford, Clé de Peau Beauté, Natasha Denona, Charlotte Tilbury, Hourglass, Huda Beauty, Estée Lauder, Anastasia Beverly Hills, Makeup by Mario, Patrick Ta, MAC, Makeup Forever, RCMA, and NARS </strong>, along with selected products from <strong> Mecca and Sephora </strong>. <br/>All products and tools are <strong>thoroughly sanitized and suitable</strong> for all skin types.",
+  },
+  {
+    question: "Can I bring my own makeup?",
+    answer: "Yes, you may. However, my service includes the use of my professional products and techniques. If I’m unfamiliar with a product, I can’t guarantee the final result.",
+  },
+  {
+    question: "How long does a bridal appointment take?",
+    answer: "Bridal makeup typically takes <strong>90–120 minutes</strong>. Hair styling and trial sessions may require additional time. All timings are discussed during your consultation.",
+  },
+  {
+    question: "Can I book makeup for my bridal party or a group?",
+    answer: "Absolutely. I can accommodate multiple clients. Please provide full details so I can schedule accordingly and ensure a smooth, relaxed experience for everyone.",
+  },
+  {
+    question: "Do you offer hair styling?",
+    answer: "Yes, I provide <strong>hair styling for weddings and special events</strong>, with styles tailored to your vision and preferences.",
+  },
+  {
+    question: "Will my makeup last all day?",
+    answer: "Yes. I use professional products and techniques designed for long wear. Touch-up services can also be arranged if required.",
+  },
+  {
+    question: "What happens if I’m running late?",
+    answer: "Please arrive on time to receive the full experience. Late arrivals may result in a shortened appointment or rescheduling, with the full fee still applicable. Early morning start times may incur additional fees.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "I accept <strong>bank transfer, PayID, and other secure payment methods</strong> for both deposits and final payments.",
   },
 ];
 

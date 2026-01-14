@@ -31,7 +31,7 @@ export interface IconProps {
 }
 
 export interface ButtonProps {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "link";
   children: React.ReactNode;
   href?: string;
   className?: string;

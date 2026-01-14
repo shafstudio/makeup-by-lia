@@ -16,6 +16,7 @@ export default function Button({
     secondary: "bg-mahogany text-white hover:bg-mahogany/90",
     outline:
       "bg-transparent border border-white text-white hover:bg-white hover:text-mahogany",
+    link: "text-xs text-black/75 font-bold uppercase tracking-widest  underline underline-offset-5 underline-tobacco/50 pb-1 hover:text-tobacco transition-colors",
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;

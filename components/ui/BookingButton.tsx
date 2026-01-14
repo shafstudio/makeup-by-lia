@@ -6,7 +6,7 @@ import Button from "./Button";
 type CalendlyEventType = "discovery" | "makeup";
 
 interface BookingButtonProps {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "link";
   children: React.ReactNode;
   className?: string;
   eventType?: CalendlyEventType;

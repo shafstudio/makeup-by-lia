@@ -23,21 +23,30 @@ export default function ServiceCard({
       <div className="flex flex-col items-center text-center gap-4">
         <h3 className="text-2xl font-serif text-mahogany">{title}</h3>
         <p className="text-tobacco font-medium">
-          {price} {priceUnit && <span className="text-xs text-mountain">{priceUnit}</span>}
+          {price}{" "}
+          {priceUnit && (
+            <span className="text-xs text-mountain">{priceUnit}</span>
+          )}
         </p>
-        <p className="text-mountain text-sm leading-relaxed mb-6">{description}</p>
+        <p className="text-mountain text-sm leading-relaxed mb-6">
+          {description}
+        </p>
         <ul className="text-sm text-mountain space-y-3 mb-8">
           {features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
         </ul>
-        <BookingButton
-          eventType="makeup"
-          variant="secondary"
-          className="text-xs font-bold uppercase tracking-widest border-b border-tobacco/50 pb-1 hover:text-tobacco transition-colors bg-transparent border-0 px-0 py-0"
-        >
-          Book Now
-        </BookingButton>
+        <div className="flex flex-col items-center gap-3 w-full">
+          <BookingButton eventType="makeup" variant="link">
+            Book Now
+          </BookingButton>
+          <a
+            href="/terms-and-conditions"
+            className="text-xs text-mountain/60 hover:text-tobacco transition-colors underline"
+          >
+            Terms &amp; Conditions
+          </a>
+        </div>
       </div>
     </div>
   );

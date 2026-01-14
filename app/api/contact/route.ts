@@ -3,12 +3,59 @@ import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+  if (!secretKey) {
+    console.warn("reCAPTCHA secret key is not configured");
+    return true; // Allow submission if reCAPTCHA is not configured
+  }
+
+  try {
+    const response = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=${secretKey}&response=${token}`,
+      }
+    );
+
+    const data = await response.json();
+
+    // Check if the score is above threshold (0.5 is recommended)
+    return data.success && data.score >= 0.5;
+  } catch (error) {
+    console.error("reCAPTCHA verification error:", error);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     // 1. Parse and validate request body
-    const { name, email, date, venue, message } = await request.json();
+    const { name, email, date, venue, message, recaptchaToken } =
+      await request.json();
 
-    // 2. Validate required fields
+    // 2. Verify reCAPTCHA token
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification required" },
+        { status: 400 }
+      );
+    }
+
+    const isValidRecaptcha = await verifyRecaptcha(recaptchaToken);
+    if (!isValidRecaptcha) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
+        { status: 400 }
+      );
+    }
+
+    // 3. Validate required fields
     if (!name || !email) {
       return NextResponse.json(
         { error: "Name and email are required" },
@@ -16,7 +63,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Validate email format
+    // 4. Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -25,7 +72,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 4. Send admin notification email
+    // 5. Send admin notification email
     await resend.emails.send({
       from: process.env.CONTACT_EMAIL_FROM!,
       to: process.env.CONTACT_EMAIL_TO!,
@@ -57,7 +104,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    // 5. Send user confirmation email
+    // 6. Send user confirmation email
     await resend.emails.send({
       from: process.env.CONTACT_EMAIL_FROM!,
       to: email,
@@ -104,7 +151,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    // 6. Return success response
+    // 7. Return success response
     return NextResponse.json({
       success: true,
       message: "Email sent successfully",

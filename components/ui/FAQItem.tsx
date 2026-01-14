@@ -11,7 +11,10 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
           className="text-mountain font-light transform group-open:rotate-180 transition-transform"
         />
       </summary>
-      <div className="pt-2 pb-4 text-mountain font-light leading-relaxed">{answer}</div>
+      <div
+        className="pt-2 pb-4 text-mountain font-light leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: answer }}
+      />
     </details>
   );
 }

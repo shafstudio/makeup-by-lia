@@ -1,36 +1,41 @@
-import { NAV_LINKS } from "@/lib/constants";
 import Icon from "../ui/Icon";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-sand py-12 sm:py-16">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6 sm:gap-8">
+    <footer className="bg-white border-t border-sand py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-3">
         <div className="flex items-center gap-2">
           <Icon
             name="brush"
             className="text-mahogany text-xl sm:text-2xl font-light"
           />
           <span className="text-mahogany font-serif text-lg sm:text-xl tracking-widest uppercase">
-            Bridal Artistry
+            BY LIA MAKEUP
           </span>
         </div>
-        <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 text-xs font-bold uppercase tracking-widest text-mountain">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hover:text-mahogany transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a href="#contact" className="hover:text-mahogany transition-colors">
-            Contact
-          </a>
-        </nav>
-        <p className="text-sm text-mountain/50 mt-2 sm:mt-4 text-center">
-          © 2026 Makeup By Lia. Designed by shafstudio.
-        </p>
+        <a
+          href="/terms-and-conditions"
+          className="text-tobacco hover:text-mahogany transition-colors text-sm"
+        >
+          Terms & Conditions
+        </a>
+        <div className="flex flex-col items-center">
+          <p className="text-sm text-mountain/70 text-center flex items-center justify-center gap-1">
+            © {new Date().getFullYear()} By Lia Makeup. All rights reserved.
+          </p>
+          <div className="flex items-center gap-1 max-h-12.5">
+            <div className="text-sm text-mountain/70">Designed by</div>
+            <div className="relative w-25 h-10">
+              <Image
+                src="/assets/logos/logo-black-removebg.png"
+                alt="Shafstudio Logo"
+                fill
+                className="object-cover opacity-40"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );

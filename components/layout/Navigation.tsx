@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
 import Icon from "../ui/Icon";
 import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
@@ -10,7 +11,13 @@ export default function Navigation() {
   const scrolled = useScrollPosition();
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1] as const, // Smooth easing curve
+      }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white shadow-md border-b border-sand/20"
@@ -34,7 +41,7 @@ export default function Navigation() {
                 scrolled ? "text-mahogany" : "text-white"
               }`}
             >
-              MAKEUP BY LIA
+              BY LIA MAKEUP
             </h1>
           </a>
           <div className="hidden md:flex items-center space-x-10">
@@ -91,8 +98,11 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Close Button */}
-          <div className="flex justify-end p-4 border-b border-sand">
+          {/* Header with MENU title and Close Button */}
+          <div className="flex justify-between items-center p-4 border-b border-sand">
+            <h2 className="text-sm font-bold tracking-widest uppercase text-mahogany">
+              Menu
+            </h2>
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-2 text-mahogany hover:bg-mahogany/10 rounded-sm transition-colors cursor-pointer"
@@ -123,6 +133,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
