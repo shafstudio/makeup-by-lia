@@ -1,119 +1,98 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useCallback, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { PORTFOLIO_IMAGES } from "@/lib/constants";
 import PortfolioImage from "../ui/PortfolioImage";
 import MinimalCarouselArrows from "../ui/MinimalCarouselArrows";
-import { useCarousel } from "@/lib/hooks/useCarousel";
 
 export default function PortfolioSection() {
-  const [slidesToShow, setSlidesToShow] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect screen size and set slidesToShow
+  // Detect screen size
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      if (width >= 1024) {
-        setSlidesToShow(4); // Desktop: 4 images
-        setIsMobile(false);
-      } else if (width >= 768) {
-        setSlidesToShow(3); // Tablet: 3 images
-        setIsMobile(false);
-      } else {
-        setSlidesToShow(1); // Mobile: 1 image per carousel (2 stacked)
-        setIsMobile(true);
-      }
+      setIsMobile(window.innerWidth < 768);
     };
-
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Split images for mobile: top and bottom carousels
+  // Split images for mobile
   const topImages = PORTFOLIO_IMAGES.filter((_, index) => index % 2 === 0);
   const bottomImages = PORTFOLIO_IMAGES.filter((_, index) => index % 2 === 1);
 
-  // Create infinite loop by cloning images
-  // Clone enough images to fill the viewport (slidesToShow) at the beginning and end
-  const cloneCount = slidesToShow;
-
-  const createInfiniteArray = (images: typeof PORTFOLIO_IMAGES) => {
-    const clonedStart = images.slice(-cloneCount);
-    const clonedEnd = images.slice(0, cloneCount);
-    return [...clonedStart, ...images, ...clonedEnd];
-  };
-
-  const infiniteImages = createInfiniteArray(PORTFOLIO_IMAGES);
-  const infiniteTopImages = createInfiniteArray(topImages);
-  const infiniteBottomImages = createInfiniteArray(bottomImages);
-
-  // For mobile, we need to calculate based on the smaller array (since we have two stacked)
-  // For tablet/desktop, use the full array length
-  const effectiveItemsCount = isMobile
-    ? topImages.length
-    : PORTFOLIO_IMAGES.length;
-
-  const {
-    currentIndex,
-    totalSlides,
-    next,
-    prev,
-    handleTouchStart,
-    handleTouchMove,
-    handleTouchEnd,
-    pause,
-    resume,
-    canGoPrev,
-    canGoNext,
-  } = useCarousel({
-    itemsCount: effectiveItemsCount,
-    slidesToShow: 1, // Slide one image at a time
-    autoPlayInterval: 3000,
-    infinite: true,
+  // Desktop/Tablet carousel
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+    skipSnaps: false,
   });
 
-  // Infinite loop state - track actual position including clones
-  const [actualIndex, setActualIndex] = useState(cloneCount);
-  const [isTransitioning, setIsTransitioning] = useState(true);
+  // Mobile carousels
+  const [emblaTopRef, emblaTopApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
 
-  // Sync actualIndex with currentIndex and handle infinite loop
+  const [emblaBottomRef, emblaBottomApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+
+  // Autoplay functionality
   useEffect(() => {
-    setActualIndex(currentIndex + cloneCount);
-  }, [currentIndex, cloneCount]);
+    if (!emblaApi && !emblaTopApi) return;
 
-  // Handle seamless infinite loop
+    const api = isMobile ? emblaTopApi : emblaApi;
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+      if (isMobile && emblaBottomApi) {
+        emblaBottomApi.scrollNext();
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [emblaApi, emblaTopApi, emblaBottomApi, isMobile]);
+
+  // Sync mobile carousels
   useEffect(() => {
-    const handleTransitionEnd = () => {
-      const arrayLength = isMobile ? topImages.length : PORTFOLIO_IMAGES.length;
+    if (!emblaTopApi || !emblaBottomApi) return;
 
-      // If we're at the end clones, jump to the real start
-      if (actualIndex >= arrayLength + cloneCount) {
-        setIsTransitioning(false);
-        setActualIndex(cloneCount);
-      }
-      // If we're at the start clones, jump to the real end
-      else if (actualIndex < cloneCount) {
-        setIsTransitioning(false);
-        setActualIndex(arrayLength + cloneCount - 1);
-      }
+    const syncBottom = () => {
+      const index = emblaTopApi.selectedScrollSnap();
+      emblaBottomApi.scrollTo(index);
     };
 
-    // Re-enable transition after jump
-    if (!isTransitioning) {
-      const timeout = setTimeout(() => setIsTransitioning(true), 50);
-      return () => clearTimeout(timeout);
+    emblaTopApi.on("select", syncBottom);
+    return () => {
+      emblaTopApi.off("select", syncBottom);
+    };
+  }, [emblaTopApi, emblaBottomApi]);
+
+  const scrollPrev = useCallback(() => {
+    if (isMobile) {
+      emblaTopApi?.scrollPrev();
+      emblaBottomApi?.scrollPrev();
+    } else {
+      emblaApi?.scrollPrev();
     }
+  }, [emblaApi, emblaTopApi, emblaBottomApi, isMobile]);
 
-    return handleTransitionEnd;
-  }, [actualIndex, cloneCount, isMobile, topImages.length, isTransitioning]);
-
-  // Calculate transform offset - slide one image at a time
-  const getTransformValue = () => {
-    const percentPerImage = 100 / slidesToShow;
-    return -actualIndex * percentPerImage;
-  };
+  const scrollNext = useCallback(() => {
+    if (isMobile) {
+      emblaTopApi?.scrollNext();
+      emblaBottomApi?.scrollNext();
+    } else {
+      emblaApi?.scrollNext();
+    }
+  }, [emblaApi, emblaTopApi, emblaBottomApi, isMobile]);
 
   return (
     <section className="py-32 bg-vanilla" id="portfolio">
@@ -122,94 +101,40 @@ export default function PortfolioSection() {
           Selected Works
         </h2>
 
-        {/* Mobile: Dual Synced Carousels (Stacked Vertically) */}
+        {/* Mobile: Dual Synced Carousels */}
         {isMobile ? (
           <div className="space-y-4">
             {/* Top Carousel */}
-            <div
-              className="relative group"
-              onMouseEnter={pause}
-              onMouseLeave={resume}
-            >
-              <div className="overflow-hidden">
-                <div
-                  className={`flex ${
-                    isTransitioning
-                      ? "transition-transform duration-500 ease-out"
-                      : ""
-                  }`}
-                  style={{
-                    transform: `translateX(${getTransformValue()}%)`,
-                  }}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                >
-                  {infiniteTopImages.map((portfolioImage, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-2">
-                      <PortfolioImage {...portfolioImage} />
-                    </div>
-                  ))}
-                </div>
+            <div className="overflow-hidden -mx-2" ref={emblaTopRef}>
+              <div className="flex">
+                {topImages.map((portfolioImage, index) => (
+                  <div key={index} className="flex-[0_0_100%] min-w-0 px-2">
+                    <PortfolioImage {...portfolioImage} />
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Bottom Carousel */}
-            <div
-              className="relative group"
-              onMouseEnter={pause}
-              onMouseLeave={resume}
-            >
-              <div className="overflow-hidden">
-                <div
-                  className={`flex ${
-                    isTransitioning
-                      ? "transition-transform duration-500 ease-out"
-                      : ""
-                  }`}
-                  style={{
-                    transform: `translateX(${getTransformValue()}%)`,
-                  }}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                >
-                  {infiniteBottomImages.map((portfolioImage, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-2">
-                      <PortfolioImage {...portfolioImage} />
-                    </div>
-                  ))}
-                </div>
+            <div className="overflow-hidden -mx-2" ref={emblaBottomRef}>
+              <div className="flex">
+                {bottomImages.map((portfolioImage, index) => (
+                  <div key={index} className="flex-[0_0_100%] min-w-0 px-2">
+                    <PortfolioImage {...portfolioImage} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         ) : (
           /* Tablet/Desktop: Single Carousel */
-          <div
-            className="relative group"
-            onMouseEnter={pause}
-            onMouseLeave={resume}
-          >
-            <div className="overflow-hidden">
-              <div
-                className={`flex ${
-                  isTransitioning
-                    ? "transition-transform duration-500 ease-out"
-                    : ""
-                }`}
-                style={{
-                  transform: `translateX(${getTransformValue()}%)`,
-                }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                {infiniteImages.map((portfolioImage, index) => (
+          <div className="relative group">
+            <div className="overflow-hidden -mx-2" ref={emblaRef}>
+              <div className="flex">
+                {PORTFOLIO_IMAGES.map((portfolioImage, index) => (
                   <div
                     key={index}
-                    className={`flex-shrink-0 px-2 ${
-                      slidesToShow === 4 ? "w-full lg:w-1/4" : "w-full md:w-1/3"
-                    }`}
+                    className="flex-[0_0_100%] min-w-0 md:flex-[0_0_33.333%] lg:flex-[0_0_25%] px-2"
                   >
                     <PortfolioImage {...portfolioImage} />
                   </div>
@@ -217,23 +142,13 @@ export default function PortfolioSection() {
               </div>
             </div>
 
-            {/* Navigation Arrows - Only on tablet/desktop */}
-            {totalSlides > 1 && (
-              <MinimalCarouselArrows
-                onPrev={() => {
-                  prev();
-                  pause();
-                  resume();
-                }}
-                onNext={() => {
-                  next();
-                  pause();
-                  resume();
-                }}
-                canGoPrev={canGoPrev}
-                canGoNext={canGoNext}
-              />
-            )}
+            {/* Navigation Arrows */}
+            <MinimalCarouselArrows
+              onPrev={scrollPrev}
+              onNext={scrollNext}
+              canGoPrev={true}
+              canGoNext={true}
+            />
           </div>
         )}
 

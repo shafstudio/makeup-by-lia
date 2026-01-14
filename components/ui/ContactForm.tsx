@@ -9,17 +9,19 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 // Zod validation schema
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.email("Please enter a valid email address"),
   date: z.string().optional(),
   venue: z.string().optional(),
-  message: z.string().optional(),
+  message: z.string().min(20, "Message must be at least 20 characters long"),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function ContactForm() {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const {
@@ -194,8 +196,8 @@ export default function ContactForm() {
       {submitStatus === "success" && (
         <div className="p-4 bg-green-50 border border-green-200 rounded-sm">
           <p className="text-green-800 text-sm">
-            Thank you for your inquiry! We've received your message and will
-            respond within 24 hours.
+            Thank you for your inquiry! We&apos;ve received your message and
+            will respond within 24 hours.
           </p>
         </div>
       )}

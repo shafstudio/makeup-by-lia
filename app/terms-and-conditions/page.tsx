@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 import { NAV_LINKS } from "@/lib/constants";
 import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
 import Footer from "@/components/layout/Footer";
@@ -23,35 +24,38 @@ export default function TermsPage() {
         }}
         className="fixed top-0 left-0 w-full z-50 bg-white shadow-md border-b border-sand/20"
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="flex justify-between items-center h-24">
-            <a
+            <Link
               href="/#home"
               className="flex items-center gap-2 group cursor-pointer"
             >
-              <Icon name="brush" className="text-mahogany text-3xl font-light" />
+              <Icon
+                name="brush"
+                className="text-mahogany text-3xl font-light"
+              />
               <h1 className="text-2xl font-serif font-medium tracking-widest uppercase text-mahogany">
                 BY LIA MAKEUP
               </h1>
-            </a>
+            </Link>
             <div className="hidden md:flex items-center space-x-10">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={`/${link.href}`}
                   className="text-xs font-medium tracking-widest uppercase text-mahogany/80 hover:text-mahogany transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
             <div className="flex items-center gap-4">
-              <a
+              <Link
                 href="/#contact"
                 className="hidden sm:flex items-center justify-center px-8 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 bg-mahogany border border-mahogany text-white hover:bg-mahogany/90"
               >
                 Inquire
-              </a>
+              </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 rounded-sm transition-colors cursor-pointer text-mahogany hover:bg-mahogany/10"
@@ -90,22 +94,22 @@ export default function TermsPage() {
             </div>
             <div className="flex-1 px-6 py-8 space-y-6 overflow-y-auto">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={`/${link.href}`}
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-sm font-medium text-mahogany hover:text-tobacco transition-colors tracking-widest uppercase"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
+              <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-center px-8 py-2.5 bg-mahogany text-white text-xs font-bold tracking-widest uppercase hover:bg-tobacco transition-all duration-300 mt-8"
               >
                 Inquire
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -114,7 +118,7 @@ export default function TermsPage() {
       <main>
         {/* Hero Section */}
         <section className="relative py-10 flex items-center justify-center bg-mahogany">
-          <div className="relative z-20 max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center">
+          <div className="relative z-20 max-w-7xl w-full mx-auto px-8 pt-20 text-center">
             <div className="flex flex-col items-center gap-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight tracking-wide">
                 Terms &amp; Conditions
@@ -129,7 +133,7 @@ export default function TermsPage() {
 
         {/* Content Section */}
         <section className="py-24 bg-vanilla flex-grow">
-          <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[800px] mx-auto px-8">
             <div className="mb-16 text-center">
               <Icon
                 name="gavel"
@@ -154,8 +158,8 @@ export default function TermsPage() {
                   non-refundable.
                 </p>
                 <p>
-                  Remaining balance is due at least 3 days before your appointment
-                  unless otherwise agreed.
+                  Remaining balance is due at least 3 days before your
+                  appointment unless otherwise agreed.
                 </p>
               </div>
             </div>
@@ -169,20 +173,20 @@ export default function TermsPage() {
                 <div>
                   <p className="font-semibold mb-2">Client cancellations:</p>
                   <p>
-                    Deposits are non-refundable. Clients may transfer their deposit
-                    once to a new date within 3 months, subject to availability.
-                    Cancellations without rescheduling will result in the
-                    forfeiture of the deposit. If a client cancels less than 14
-                    days before the appointment, the remaining balance may also be
-                    charged at the artist's discretion.
+                    Deposits are non-refundable. Clients may transfer their
+                    deposit once to a new date within 3 months, subject to
+                    availability. Cancellations without rescheduling will result
+                    in the forfeiture of the deposit. If a client cancels less
+                    than 14 days before the appointment, the remaining balance
+                    may also be charged at the artist's discretion.
                   </p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">Artist cancellations:</p>
                   <p>
                     If I am unable to attend due to illness or unforeseen
-                    circumstances, I will arrange a replacement artist or provide a
-                    full refund.
+                    circumstances, I will arrange a replacement artist or
+                    provide a full refund.
                   </p>
                 </div>
               </div>
@@ -233,8 +237,8 @@ export default function TermsPage() {
                   website, or portfolio.
                 </p>
                 <p>
-                  If you prefer not to be featured, please let me know before your
-                  appointment.
+                  If you prefer not to be featured, please let me know before
+                  your appointment.
                 </p>
               </div>
             </div>
@@ -246,8 +250,8 @@ export default function TermsPage() {
               </h2>
               <div className="text-mountain font-light leading-loose space-y-4">
                 <p>
-                  Makeup is designed to enhance your natural features and reflect
-                  your chosen style.
+                  Makeup is designed to enhance your natural features and
+                  reflect your chosen style.
                 </p>
                 <p>
                   Results may vary depending on skin, hair, or other personal

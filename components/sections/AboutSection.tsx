@@ -3,12 +3,12 @@ import StatCard from "../ui/StatCard";
 export default function AboutSection() {
   return (
     <section className="py-32 bg-vanilla" id="about">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="relative order-2 lg:order-1">
-            <div className="aspect-[3/4] overflow-hidden bg-gray-100 relative z-10">
+            <div className="aspect-3/4 overflow-hidden bg-gray-100 relative z-10">
               <div
-                className="w-full h-full bg-cover bg-center grayscale-[20%]"
+                className="w-full h-full bg-cover bg-center grayscale-20"
                 style={{
                   backgroundImage:
                     "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXiirM7eLXGoMcDcJO1IFsaEiXVukOCAuw46cArvgmMYiR3n79gLQRaL-9ZEWSbCchzBIAjqAMtSwOCj039eyeJJ1StZ3q-qkrUu3Osfm-yTScaiYZdQLtkMsTvkNr7P73cYv_CPmNb4mjoSctTlauaQXCZIrFbOmtHTE3l2trB7Sduld0vkBl_D1sMnPyO7r0qjJIUej3zvW1oySvfISLKX35yMibrW5dSDMIEm-7_-281JdDccUVcQw9OW_RGcHiwNMy9e40JQSi')",
@@ -16,7 +16,7 @@ export default function AboutSection() {
               ></div>
             </div>
             <div className="absolute top-8 -left-8 w-full h-full border border-tobacco/30 z-0 hidden lg:block"></div>
-            <div className="absolute -bottom-12 -right-12 w-2/5 aspect-[4/5] overflow-hidden shadow-xl z-20 hidden md:block">
+            <div className="absolute -bottom-12 -right-12 w-2/5 aspect-4/5 overflow-hidden shadow-xl z-20 hidden md:block">
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{
