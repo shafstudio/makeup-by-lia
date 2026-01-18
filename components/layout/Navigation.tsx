@@ -68,7 +68,7 @@ export default function Navigation() {
                   : "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-mahogany"
               }`}
             >
-              Inquire
+              Enquire
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -128,7 +128,7 @@ export default function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center px-8 py-2.5 bg-mahogany text-white text-xs font-bold tracking-widest uppercase hover:bg-tobacco transition-all duration-300 mt-8"
             >
-              Inquire
+              Enquire
             </a>
           </div>
         </div>

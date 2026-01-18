@@ -132,8 +132,8 @@ export default function TermsPage() {
         </section>
 
         {/* Content Section */}
-        <section className="py-24 bg-vanilla flex-grow">
-          <div className="max-w-[800px] mx-auto px-8">
+        <section className="py-24 bg-vanilla grow">
+          <div className="max-w-200 mx-auto px-8">
             <div className="mb-16 text-center">
               <Icon
                 name="gavel"
@@ -141,9 +141,10 @@ export default function TermsPage() {
               />
               <p className="text-lg text-mountain font-light leading-relaxed max-w-2xl mx-auto">
                 These Terms &amp; Conditions outline how bookings, payments, and
-                appointments work. They're here to make sure your experience is
-                clear, fair, and stress-free, so we can focus on creating a
-                beautiful, seamless makeup experience for your special day.
+                appointments work. They&apos;re here to make sure your
+                experience is clear, fair, and stress-free, so we can focus on
+                creating a beautiful, seamless makeup experience for your
+                special day.
               </p>
             </div>
 
@@ -178,7 +179,7 @@ export default function TermsPage() {
                     availability. Cancellations without rescheduling will result
                     in the forfeiture of the deposit. If a client cancels less
                     than 14 days before the appointment, the remaining balance
-                    may also be charged at the artist's discretion.
+                    may also be charged at the artist&apos;s discretion.
                   </p>
                 </div>
                 <div>
@@ -200,7 +201,7 @@ export default function TermsPage() {
               <div className="text-mountain font-light leading-loose space-y-4">
                 <p>
                   Travel fees apply for off-site bookings; parking costs may be
-                  added if venue parking isn't available.
+                  added if venue parking isn&apos;t available.
                 </p>
                 <p>
                   Please provide accurate details to avoid delays or extra
@@ -308,8 +309,8 @@ export default function TermsPage() {
               </h2>
               <div className="text-mountain font-light leading-loose space-y-4">
                 <p>
-                  By booking or paying a deposit, you acknowledge that you've
-                  read, understood, and agreed to these terms.
+                  By booking or paying a deposit, you acknowledge that
+                  you&apos;ve read, understood, and agreed to these terms.
                 </p>
               </div>
             </div>

@@ -20,8 +20,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Makeup by Lia | Professional Bridal Makeup Artist",
-  description: "Enhancing your natural radiance with timeless, elegant bridal makeup. Luxury makeup services for your wedding day.",
+  title: "By Lia Makeup | Professional Bridal Makeup Artist",
+  description:
+    "Enhancing your natural radiance with timeless, elegant bridal makeup. Luxury makeup services for your wedding day.",
 };
 
 export default function RootLayout({
@@ -42,9 +43,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body
-        className={`${cormorant.variable} ${manrope.variable} antialiased`}
-      >
+      <body className={`${cormorant.variable} ${manrope.variable} antialiased`}>
         <RecaptchaProvider>{children}</RecaptchaProvider>
         {/* Calendly Popup Widget Script */}
         <Script

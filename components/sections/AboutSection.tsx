@@ -1,5 +1,3 @@
-import StatCard from "../ui/StatCard";
-
 export default function AboutSection() {
   return (
     <section className="py-32 bg-vanilla" id="about">
