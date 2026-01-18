@@ -155,7 +155,7 @@ export default function PortfolioSection() {
         {/* View More Button */}
         <div className="flex justify-center mt-16">
           <a
-            className="group inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-mountain border border-mountain/30 rounded-full transition-all duration-300 hover:border-tobacco hover:text-tobacco hover:scale-105 cursor-pointer"
+            className="group inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-mountain border border-mountain/30 transition-all duration-300 hover:border-tobacco hover:text-tobacco hover:scale-105 cursor-pointer"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.instagram.com/bylia.makeup/"
