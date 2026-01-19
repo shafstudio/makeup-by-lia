@@ -160,7 +160,7 @@ export default function PortfolioSection() {
             target="_blank"
             href="https://www.instagram.com/bylia.makeup/"
           >
-            View More Projects
+            View More
             <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>

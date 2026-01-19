@@ -8,8 +8,7 @@ export default function AboutSection() {
               <div
                 className="w-full h-full bg-cover bg-center grayscale-20"
                 style={{
-                  backgroundImage:
-                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXiirM7eLXGoMcDcJO1IFsaEiXVukOCAuw46cArvgmMYiR3n79gLQRaL-9ZEWSbCchzBIAjqAMtSwOCj039eyeJJ1StZ3q-qkrUu3Osfm-yTScaiYZdQLtkMsTvkNr7P73cYv_CPmNb4mjoSctTlauaQXCZIrFbOmtHTE3l2trB7Sduld0vkBl_D1sMnPyO7r0qjJIUej3zvW1oySvfISLKX35yMibrW5dSDMIEm-7_-281JdDccUVcQw9OW_RGcHiwNMy9e40JQSi')",
+                  backgroundImage: "url('/assets/images/profile-pic.jpg')",
                 }}
               ></div>
             </div>
@@ -60,10 +59,6 @@ export default function AboutSection() {
                 </p>
               </div>
             </div>
-            {/* <div className="grid grid-cols-2 gap-12 border-t border-sand pt-8">
-              <StatCard number="10+" label="Years Experience" />
-              <StatCard number="500+" label="Brides Styled" />
-            </div> */}
 
             <div className="flex items-center gap-3">
               <span className="h-px w-6 bg-tobacco"></span>

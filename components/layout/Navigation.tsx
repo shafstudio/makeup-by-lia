@@ -64,7 +64,7 @@ export default function Navigation() {
               href="#contact"
               className={`hidden sm:flex items-center justify-center px-8 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 ${
                 scrolled
-                  ? "bg-mahogany border border-mahogany text-white hover:bg-mahogany/90"
+                  ? "bg-mahogany border border-mahogany text-white hover:bg-tobacco/90 hover:border-tobacco"
                   : "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-mahogany"
               }`}
             >
